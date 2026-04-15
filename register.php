@@ -1,18 +1,31 @@
 <?php
-    $con = mysqli_connect('localhost','root','','marketplace');
+session_start();
+$_SESSION['login'] = "";
+$con = mysqli_connect('localhost','root','','marketplace');
 
-    if(isset($_POST['register_button'])){
-        $name = $_POST['name'];
-        $surname = $_POST['surname'];
-        $email = $_POST['email'];
-        $login = $_POST['login'];
-        $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+if(isset($_POST['register_button'])){
+    $name = $_POST['name'];
+    $surname = $_POST['surname'];
+    $email = $_POST['email'];
+    $login = $_POST['login'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        $query = "insert into users values (null,'$name','$surname','$login','$password','$email')";
-        mysqli_query($con,$query);
-        header('location:register.php');
+    $check_query = "SELECT * FROM users WHERE login='$login' OR email='$email'";
+    $result = mysqli_query($con, $check_query);
 
+    if(mysqli_num_rows($result) > 0){
+        echo "<script>alert('Konto z tym loginem lub emailem już istnieje!');</script>";
+
+    } else {
+        $query = "INSERT INTO users (id, name, surname, login, password, email) 
+                  VALUES (NULL, '$name', '$surname', '$login', '$password', '$email')";
+        
+        mysqli_query($con, $query);
+        echo "Rejestracja udana!";
+        header('location:login.php');
     }
+    
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

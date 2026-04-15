@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <?php
+        session_start();
+        echo $_SESSION['login'];
+    ?>
     Strona główna
 </body>
 </html>

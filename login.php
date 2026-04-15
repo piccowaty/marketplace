@@ -1,3 +1,27 @@
+<?php
+    session_start();
+    $_SESSION['login'] = "";    
+    $con = mysqli_connect('localhost','root','','marketplace');
+    echo $_SESSION['login'];
+
+    if(isset($_POST['login_button'])){
+        $login = $_POST['login'];
+        $password = $_POST['password'];
+
+        $query_login = "Select id,password from users where login = '$login'";
+        $result_login = mysqli_query($con,$query_login);
+        while($row = mysqli_fetch_row($result_login)){
+            if(password_verify($password,$row[1])){
+                $_SESSION['login'] = $row[0];
+                header('location:index.php');
+            }
+            else{
+                echo "<script>alert('Niepoprawny login lub hasło');</script>";
+            }
+        }
+    }
+    echo $_SESSION['login'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,13 +45,39 @@
     <main>
         <form action="login.php" method="post" class="login_form">
             <h2>Logowanie</h2>
-            <input type="text" placeholder="Twój login" name="login">
+            <input type="text" placeholder="Twój login" name="login" id="login" oninput="checkLogin()">
             <br><br>
-            <input type="password" name="password" placeholder="Hasło">
+            <input type="password" name="password" placeholder="Hasło" id="password" oninput="checkLogin()">
             <br><br>
-            <input type="submit" value="Zaloguj się">
+            <p id="login_error"></p>
+            <input type="submit" value="Zaloguj się" name="login_button" id="login_button" disabled>
             <p>Nie masz konta? <a href="register.php">Zarejestruj się</a></p>
         </form>
+        <script>
+            function checkLogin(){
+                let login = document.getElementById('login');
+                let password = document.getElementById('password');
+                let error = document.getElementById('login_error');
+                let button = document.getElementById('login_button');
+
+                if(login.value === "" && password.value === ""){
+                    error.innerHTML = "Wpisz login i hasło";
+                    button.disabled = true;
+
+                } else if(login.value === ""){
+                    error.innerHTML = "Wpisz login";
+                    button.disabled = true;
+
+                } else if(password.value === ""){
+                    error.innerHTML = "Wpisz hasło";
+                    button.disabled = true;
+
+                } else {
+                    error.innerHTML = "";
+                    button.disabled = false;
+                }
+            }
+        </script>
     </main>
 </body>
 </html>
