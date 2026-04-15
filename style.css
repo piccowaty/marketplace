@@ -23,7 +23,9 @@ header a{
 nav a{
     margin: 20px;
 }
-main{width: 100%;}
+main{
+    width: 100%;
+}
 main form{
     width: 90%;
     text-align: center;
@@ -37,6 +39,8 @@ form input{
 }
 form input[type=submit]{
     background-color: #9ba1e9;
+    /* display: none; */
+    margin: 0px auto;
 }
 form a{
     text-decoration: none;

@@ -19,7 +19,6 @@
         </section>
     </header>
     <main>
-        
         <form action="login.php" method="post" class="login_form">
             <h2>Logowanie</h2>
             <input type="text" placeholder="Twój login" name="login">
@@ -29,7 +28,6 @@
             <input type="submit" value="Zaloguj się">
             <p>Nie masz konta? <a href="register.php">Zarejestruj się</a></p>
         </form>
-        
     </main>
 </body>
 </html>
