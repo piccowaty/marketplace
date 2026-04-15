@@ -1,6 +1,5 @@
 <?php
     session_start();
-    $_SESSION['login'] = "";    
     $con = mysqli_connect('localhost','root','','marketplace');
     echo $_SESSION['login'];
 

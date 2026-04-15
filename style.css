@@ -55,3 +55,61 @@ form a{
 .add_product form input{
     margin: 10px;
 }
+main h2{
+    text-align: center;
+}
+.statistics{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+}
+/* Kontener dla całej listy produktów */
+.product_list {
+    display: flex;
+    flex-wrap: wrap;       /* Pozwala bloczkom przechodzić do nowej linii */
+    justify-content: center; /* Wyśrodkowuje bloczki */
+    gap: 20px;            /* Robi równe odstępy między bloczkami */
+    padding: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Pojedynczy bloczek produktu */
+.product_list div {
+    width: 300px;
+    background-color: #f9f9fb;
+    padding: 20px;
+    border: 1px solid #ddd; /* Delikatniejsza ramka */
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;  /* Elementy wewnątrz jeden pod drugim */
+    justify-content: space-between; /* Przycisk zawsze na dole */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Delikatny cień */
+    transition: transform 0.2s; /* Efekt po najechaniu */
+}
+
+.product_list div:hover {
+    transform: translateY(-5px); /* Bloczek lekko się unosi po najechaniu */
+}
+
+/* Stylowanie przycisków wewnątrz produktów */
+.product_list input[type=button] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #565f8d;
+    color: white;
+    cursor: pointer;
+}
+
+.product_list input[type=button]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.product_list h3 {
+    margin-top: 0;
+    color: #565f8d;
+}
