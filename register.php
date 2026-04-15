@@ -28,7 +28,7 @@ if(isset($_POST['register_button'])){
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,10 +38,10 @@ if(isset($_POST['register_button'])){
 <body>
     <header>
         <section class="nazwa">
-            Bazar<span class="pl">PL</span>
+            <a href="index.php">Bazar<span class="pl">PL</span></a>
         </section>
         <nav>
-            <a href="">Produkty</a><a href="">Dodaj Produkt</a><a href="">Użytkownicy</a>
+            <a href="index.php">Produkty</a><a href="add_product.php">Dodaj Produkt</a><a href="users.php">Użytkownicy</a>
         </nav>
         <section class="login_info">
             <a href="logout.php">Wyloguj</a>

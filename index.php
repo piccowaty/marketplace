@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <?php
-        session_start();
-        echo $_SESSION['login'];
-    ?>
-    Strona główna
+    <header>
+        <section class="nazwa">
+            <a href="index.php">Bazar<span class="pl">PL</span></a>
+        </section>
+        <nav>
+            <a href="index.php">Produkty</a><a href="add_product.php">Dodaj Produkt</a><a href="users.php">Użytkownicy</a>
+        </nav>
+        <section class="login_info">
+            <a href="logout.php">Wyloguj</a>
+        </section>
+    </header>
 </body>
 </html>

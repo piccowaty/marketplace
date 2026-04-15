@@ -46,3 +46,12 @@ form a{
     text-decoration: none;
     color: black;
 }
+.users_list{
+    text-align: center;
+}
+.add_product form{
+    margin: 0px auto;
+}
+.add_product form input{
+    margin: 10px;
+}
