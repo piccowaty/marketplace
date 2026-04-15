@@ -1,0 +1,44 @@
+body{
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+header{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #565f8d;
+    padding: 25px;
+    border-radius: 25px;
+    color: white;
+}
+header a{
+    color: white;
+    text-decoration: none;
+}
+.pl{
+    color: red;
+}
+nav a{
+    margin: 20px;
+}
+main{width: 100%;}
+main form{
+    width: 90%;
+    text-align: center;
+    margin: 0px auto;
+}
+form input{
+    width: 25%;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #e0dbed;
+}
+form input[type=submit]{
+    background-color: #9ba1e9;
+}
+form a{
+    text-decoration: none;
+    color: black;
+}
